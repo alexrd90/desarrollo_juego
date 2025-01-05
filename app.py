@@ -9,7 +9,14 @@ def home():
 
 @app.route('/hola')
 def hola():
-    return render_template('hola.html')
+    alex = {}
+    alex['Nombre']='Alex'
+    alex['Edad']=25
+    alex['Sexo']='Masculino'
+    alex['Ocupacion']='Estudiante'
+    alex['Hobbies']=['Leer','Cine','Deportes']
+
+    return render_template('hola.html',alex=alex)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5050, debug=True)
