@@ -5,18 +5,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Bienvenido"
+    return render_template('index.html')
 
-@app.route('/hola')
-def hola():
-    alex = {}
-    alex['Nombre']='Alex'
-    alex['Edad']=25
-    alex['Sexo']='Masculino'
-    alex['Ocupacion']='Estudiante'
-    alex['Hobbies']=['Leer','Cine','Deportes']
+@app.route('/juego1')
+def juego1():
+    return render_template('juego1.html')
 
-    return render_template('hola.html',alex=alex)
+@app.route('/juego2')
+def juego2():
+    return render_template('juego2.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5050, debug=True)

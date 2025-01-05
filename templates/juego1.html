@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas con Círculo Rojo</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="asd" width="400" height="400"></canvas>
+    <a href="/">Volver</a>
+
+    <script>
+        const canvas = document.getElementById('asd');
+        const ctx = canvas.getContext('2d');
+        let x = canvas.width / 2;
+        let y = canvas.height / 2;
+        const radius = 20;
+        const speed = 5;
+
+        function drawCircle() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'red';
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function moveCircle(event) {
+            switch(event.key) {
+                case 'ArrowUp':
+                    y -= speed;
+                    break;
+                case 'ArrowDown':
+                    y += speed;
+                    break;
+                case 'ArrowLeft':
+                    x -= speed;
+                    break;
+                case 'ArrowRight':
+                    x += speed;
+                    break;
+            }
+            drawCircle();
+        }
+
+        document.addEventListener('keydown', moveCircle);
+        drawCircle();
+    </script>
+    
+</body>
+</html>
